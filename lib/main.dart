@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
                 children: <Widget>[
                   ListTile(
                     title: const Text('Tu cuenta está protegida'),
-                    subtitle: Text(
+                    subtitle: const Text(
                         'La Verificación de seguridad revisó tu cuenta y no encontró acciones recomendadas.'),
                     trailing: IconButton(
                         icon: const Icon(Icons.check_circle,
