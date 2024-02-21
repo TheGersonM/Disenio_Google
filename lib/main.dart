@@ -22,14 +22,13 @@ class MyApp extends StatelessWidget {
                 onPressed: () {},
               ),
               const CircleAvatar(
-                // Puedes reemplazar esto con tu propia imagen.
                 backgroundImage:
                     NetworkImage('https://picsum.photos/250?image=9'),
               ),
             ],
             bottom: const TabBar(
               labelStyle:
-                  TextStyle(fontSize: 10.0), // Reduce el tamaño del texto
+                  TextStyle(fontSize: 10.0), 
               tabs: [
                 Tab(text: 'Página principal'),
                 Tab(text: 'Info. personal'),
@@ -102,11 +101,10 @@ class MyApp extends StatelessWidget {
                                   selectionColor: Colors.black,
                                 ),
                                 trailing: IconButton(
-                                  // Cambia ElevatedButton por IconButton
                                   icon: const Icon(Icons
-                                      .arrow_right), // Cambia el icono según lo necesario
+                                      .arrow_right),
                                   onPressed:
-                                      () {}, // Agrega la función que desees
+                                      () {}, 
                                 ),
                               ),
                             ],
@@ -131,11 +129,10 @@ class MyApp extends StatelessWidget {
                                   selectionColor: Colors.black,
                                 ),
                                 trailing: IconButton(
-                                  // Cambia ElevatedButton por IconButton
                                   icon: const Icon(Icons
-                                      .arrow_right), // Cambia el icono según lo necesario
+                                      .arrow_right), 
                                   onPressed:
-                                      () {}, // Agrega la función que desees
+                                      () {}, 
                                 ),
                               ),
                             ],
@@ -160,11 +157,11 @@ class MyApp extends StatelessWidget {
                                   selectionColor: Colors.black,
                                 ),
                                 trailing: IconButton(
-                                  // Cambia ElevatedButton por IconButton
+                           
                                   icon: const Icon(Icons
-                                      .arrow_right), // Cambia el icono según lo necesario
+                                      .arrow_right), 
                                   onPressed:
-                                      () {}, // Agrega la función que desees
+                                      () {}, 
                                 ),
                               ),
                             ],
@@ -197,8 +194,7 @@ class MyApp extends StatelessWidget {
                   ),
                 ],
               ),
-              // Aquí uedes poner el contenido de las otras dos pestañas.
-              // Container(),  // Contenido para el Tab 2
+             
               Container(),
               Container(),
             ],
