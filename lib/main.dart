@@ -1,91 +1,209 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MyApp());
+void main() {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  static const String _title = 'Flutter Stateful Clicker Counter';
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: _title,
-      theme: ThemeData(
-        // useMaterial3: true,
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-  // This class is the configuration for the state.
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: const Text('Flutter Demo Click Counter'),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+      debugShowCheckedModeBanner: false,
+      home: DefaultTabController(
+        length: 3,
+        child: Scaffold(
+          appBar: AppBar(
+            backgroundColor: Color(0xffe8e8e8),
+            title: const Text('Cuenta de Google'),
+            foregroundColor: Colors.black,
+            actions: [
+              IconButton(
+                icon: const Icon(Icons.search),
+                onPressed: () {},
+              ),
+              const CircleAvatar(
+                // Puedes reemplazar esto con tu propia imagen.
+                backgroundImage:
+                    NetworkImage('https://picsum.photos/250?image=9'),
+              ),
+            ],
+            bottom: const TabBar(
+              labelStyle:
+                  TextStyle(fontSize: 10.0), // Reduce el tamaño del texto
+              tabs: [
+                Tab(text: 'Página principal'),
+                Tab(text: 'Info. personal'),
+                Tab(text: 'Datos y privacidad'),
+              ],
+              labelColor: Colors.black,
             ),
-            Text(
-              '$_counter',
-              style: const TextStyle(fontSize: 25),
-            ),
-          ],
+          ),
+          body: TabBarView(
+            children: <Widget>[
+              ListView(
+                children: <Widget>[
+                  ListTile(
+                    title: const Text('Tu cuenta está protegida'),
+                    subtitle: Text(
+                        'La Verificación de seguridad revisó tu cuenta y no encontró acciones recomendadas.'),
+                    trailing: IconButton(
+                        icon: const Icon(Icons.check_circle,
+                            color: Colors.green, size: 35),
+                        onPressed: () {}),
+                  ),
+                  ListTile(
+                    leading: ElevatedButton(
+                      child: const Text('Ver detalles'),
+                      onPressed: () {},
+                    ),
+                  ),
+                  ListTile(
+                    title: const Text('Verificación de privacidad'),
+                    subtitle: const Text(
+                        'Elige la configuración de privacidad indicada para ti con esta guía paso a paso.'),
+                    trailing: IconButton(
+                        icon: const Icon(Icons.privacy_tip,
+                            color: Colors.blue, size: 35),
+                        onPressed: () {}),
+                  ),
+                  ListTile(
+                    leading: ElevatedButton(
+                      child:
+                          const Text('Realizar la verificacion de seguridad'),
+                      onPressed: () {},
+                    ),
+                  ),
+                  const SizedBox(height: 60, width: 60),
+                  Container(
+                    padding: const EdgeInsets.all(1),
+                    child: const Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        Text('¿Buscas otra información?',
+                            textAlign: TextAlign.left,
+                            style:
+                                TextStyle(color: Colors.black, fontSize: 22)),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(1),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Expanded(
+                          child: Column(
+                            children: <Widget>[
+                              ListTile(
+                                leading: const Icon(Icons.search,
+                                    color: Colors.grey),
+                                title: const Text(
+                                  'Buscar en la cuenta de Google',
+                                  selectionColor: Colors.black,
+                                ),
+                                trailing: IconButton(
+                                  // Cambia ElevatedButton por IconButton
+                                  icon: const Icon(Icons
+                                      .arrow_right), // Cambia el icono según lo necesario
+                                  onPressed:
+                                      () {}, // Agrega la función que desees
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(1),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Expanded(
+                          child: Column(
+                            children: <Widget>[
+                              ListTile(
+                                leading:
+                                    const Icon(Icons.help, color: Colors.grey),
+                                title: const Text(
+                                  'Ver las opciones de ayuda',
+                                  selectionColor: Colors.black,
+                                ),
+                                trailing: IconButton(
+                                  // Cambia ElevatedButton por IconButton
+                                  icon: const Icon(Icons
+                                      .arrow_right), // Cambia el icono según lo necesario
+                                  onPressed:
+                                      () {}, // Agrega la función que desees
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(1),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Expanded(
+                          child: Column(
+                            children: <Widget>[
+                              ListTile(
+                                leading: const Icon(Icons.feedback,
+                                    color: Colors.grey),
+                                title: const Text(
+                                  'Enviar comentarios',
+                                  selectionColor: Colors.black,
+                                ),
+                                trailing: IconButton(
+                                  // Cambia ElevatedButton por IconButton
+                                  icon: const Icon(Icons
+                                      .arrow_right), // Cambia el icono según lo necesario
+                                  onPressed:
+                                      () {}, // Agrega la función que desees
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    alignment: Alignment.bottomRight,
+                    padding: const EdgeInsets.all(1),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: <Widget>[
+                            IconButton(
+                              icon: const Icon(Icons.help),
+                              onPressed: () {},
+                            ),
+                            IconButton(
+                              icon: const Icon(Icons.feedback),
+                              onPressed: () {},
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              // Aquí uedes poner el contenido de las otras dos pestañas.
+              // Container(),  // Contenido para el Tab 2
+              Container(),
+              Container(),
+            ],
+          ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }
